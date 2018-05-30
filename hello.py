@@ -6,6 +6,6 @@
 
 a = 100
 if (a > 1):
-    print(a)
-else:
     print(1)
+else:
+    print(11)
