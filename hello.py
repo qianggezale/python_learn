@@ -109,13 +109,15 @@
 # print(hex(255))
 
 
-#函数
-def my_abs(num):
-    if (num > 0):
-        return num
-    else:
-        return -num
+# #函数
+# def my_abs(num):
+#     if not isinstance(num,(int,float)): #知识点
+#         raise TypeError('只能输入整型和浮点型')
+#     if (num > 0):
+#         return num
+#     else:
+#         return -num
 
-print(my_abs(-22))
+# print(my_abs('ww'))
 
 
