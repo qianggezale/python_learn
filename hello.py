@@ -297,8 +297,11 @@
 
 # nowadd()
 
-#访问机制
-import fangwen
-print(fangwen.add(1,2,3))
+# #访问机制
+# import fangwen
+# print(fangwen.add(1,2,3))
+# print(fangwen._add(1,2))
 
+import sys 
+print(sys.path)
 
