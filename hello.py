@@ -194,3 +194,111 @@
 # L = ['Hello', 'World', 18, 'Apple', None]
 # print([str(n).lower() for n in L])
 # print([n.lower() for n in L if isinstance(n,str)])
+
+# #map
+# def cheng(x):
+#     return x * x
+
+# print(list(map(cheng, [1, 2, 3])))
+
+# #reduce
+# def add(x, y):
+#     return x + y
+# from functools import reduce
+# reducedome=reduce(add,[1,2,3,4])
+# print(reducedome)
+
+# #把字符串'123456'转换成浮点数123456
+# dic = {
+#     '0': 0,
+#     '1': 1,
+#     '2': 2,
+#     '3': 3,
+#     '4': 4,
+#     '5': 5,
+#     '6': 6,
+#     '7': 7,
+#     '8': 8,
+#     '9': 9,
+#     '.': -1
+# }
+
+# def str2int(str):
+#     def fn(x, y):
+#         return x * 10 + y
+
+#     def strnum(strnum):
+#         return dic[strnum]
+
+#     from functools import reduce
+#     return reduce(fn, map(strnum, str))
+
+# print(str2int('123123'))
+
+# #把字符串'123.456'转换成浮点数123.456
+# def str2folat(str):
+#     nums = map(lambda n: dic[n], str)
+#     point = 0
+
+#     def fn(x, y):
+#         nonlocal point
+#         if (y == -1):
+#             point = 1
+#             return x
+#         if (point == 0):
+#             return x * 10 + y
+#         else:
+#             point = point * 10
+#             return x + y / point
+
+#     from functools import reduce
+#     return reduce(fn, nums, 0.0)
+
+# print(str2folat('.123123'))
+
+# #sorted
+# L = [('Bob', 75), ('Adam', 92), ('Bart', 66), ('Lisa', 88)]
+# def mysort(tuple1,tuple2):
+#     return tuple1[1]>tuple2[2]
+# from operator import itemgetter
+# print(sorted(L,key=itemgetter(1)))
+# print(sorted(L,key=lambda n:n[1]))
+
+#lambda
+# print(list(filter(lambda x: x % 2 == 1, range(1, 21))))
+
+# #装饰模式
+
+# import functools
+
+
+# def log(fun):
+#     @functools.wraps(fun)
+#     def wrapper(*arg, **kw):
+#         print(fun.__name__)
+#         return fun(*arg, **kw)
+#     return wrapper
+
+
+# def logtext(text):
+#     def zhuangshi(fun):
+#         @functools.wraps(fun)
+#         def wrapper(*arg, **kw):
+#             print(text, fun.__name__)
+#             return fun(*arg, **kw)
+#         return wrapper
+#     return zhuangshi
+
+
+# @logtext('hhhh')
+# def nowadd():
+#     print(2)
+
+
+# nowadd()
+
+#访问机制
+import fangwen
+print(fangwen.add(1,2,3))
+
+
