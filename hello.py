@@ -75,7 +75,7 @@
 # height=float(input('输入身高：'))
 # weight=float(input('输入体重：'))
 # import math
-# bmi=weight/math.sqrt(height)
+# bmi=weight/math.pow(height,2)
 # print(bmi)
 
 # sum = 0
@@ -108,7 +108,6 @@
 # #16进制
 # print(hex(255))
 
-
 # #函数
 # def my_abs(num):
 #     if not isinstance(num,(int,float)): #知识点
@@ -119,5 +118,26 @@
 #         return -num
 
 # print(my_abs('ww'))
+
+
+# def jisuan(*num):
+#     sum = 0
+#     for n in num:
+#         sum = sum + n
+#     return sum
+
+# print(jisuan(1,2,3,4))
+# nums=[1,2,3,4,5]
+# print(jisuan(*nums))
+
+
+# def person(name,**other):
+#     print('name:%s,other:%s'%(name,other))
+# person('qiang',a='1',b='2')
+
+
+
+
+
 
 
