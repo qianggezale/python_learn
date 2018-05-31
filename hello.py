@@ -67,6 +67,10 @@
 # mylist.reverse()
 # print(mylist)
 
+# #脚标
+# for i,v in enumerate(mylist):
+#     print(i,v)
+
 # #tuple元组
 # # mytuple=(1,2,3)
 # mytuple = (1, '1')
@@ -97,6 +101,9 @@
 #     print(dic[item])
 # print(dic.get('aa',-1))
 
+# for k,v in dic.items():
+#     print(k,v)
+
 # dic={}
 # dic['a']=(1,2,3)
 # print(dic['a'][1])
@@ -119,7 +126,6 @@
 
 # print(my_abs('ww'))
 
-
 # def jisuan(*num):
 #     sum = 0
 #     for n in num:
@@ -130,14 +136,61 @@
 # nums=[1,2,3,4,5]
 # print(jisuan(*nums))
 
-
 # def person(name,**other):
 #     print('name:%s,other:%s'%(name,other))
 # person('qiang',a='1',b='2')
 
+# def person(name,*args,age,fm='f'):
+#     print(name,age,fm)
 
+# person('qiang',age=1,fm='m')
+# person('qiang',age=1)
 
+# #递归
+# #阶乘例子
+# def jiecheng(n):
+#     if (n < 1):
+#         return 0
+#     if (n == 1):
+#         return 1
+#     return n * jiecheng(n - 1)
 
+# print(jiecheng(0))
+# print(jiecheng(2))
+# print(jiecheng(4))
 
+#切片
+# mylist=list(range(100))
+# # print(mylist[::2])
+# # print(mylist[0:10])
+# print(mylist[-1:])
 
+# mystr=' ABCD '
+# print(mystr[1:6])
+# print(mystr.strip())
 
+# #查找最大最小值
+# def findMinAndMax(mylist):
+#     minnum=None
+#     maxnum=minnum
+#     if(len(mylist)>0):
+#         minnum=mylist[0]
+#         maxnum=minnum
+#     for v in mylist:
+#         if(v>maxnum):
+#             maxnum=v
+#         if(v<minnum):
+#             minnum=v
+#     return (minnum,maxnum)
+# mylist=[1]
+# print(findMinAndMax(mylist))
+
+# sqlist = [n * n for n in range(1, 10) if n % 2 == 0]
+# print(sqlist)
+
+# import os
+# print([d for d in os.listdir('.')])
+
+# L = ['Hello', 'World', 18, 'Apple', None]
+# print([str(n).lower() for n in L])
+# print([n.lower() for n in L if isinstance(n,str)])
