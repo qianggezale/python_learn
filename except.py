@@ -5,3 +5,13 @@ except ZeroDivisionError as e:
     # raise
 finally:
     print('1111')
+
+'''
+ssf
+
+sdfsd
+f
+
+'''
+def myfun():
+    return 1
