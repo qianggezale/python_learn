@@ -271,14 +271,12 @@
 
 # import functools
 
-
 # def log(fun):
 #     @functools.wraps(fun)
 #     def wrapper(*arg, **kw):
 #         print(fun.__name__)
 #         return fun(*arg, **kw)
 #     return wrapper
-
 
 # def logtext(text):
 #     def zhuangshi(fun):
@@ -289,11 +287,9 @@
 #         return wrapper
 #     return zhuangshi
 
-
 # @logtext('hhhh')
 # def nowadd():
 #     print(2)
-
 
 # nowadd()
 
@@ -302,6 +298,10 @@
 # print(fangwen.add(1,2,3))
 # print(fangwen._add(1,2))
 
-import sys 
-print(sys.path)
+# import sys
+# print(sys.path)
 
+import datetime
+print(datetime.datetime.now() - datetime.timedelta(seconds=10))
+print(datetime.datetime.now() > (
+    datetime.datetime.now() - datetime.timedelta(seconds=10)))
