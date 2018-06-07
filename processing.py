@@ -44,17 +44,14 @@
 
 # from multiprocessing import Process, Queue
 
-
 # def Qin(q):
 #     for x in range(7):
 #         q.put(x)
 #         print('in:', x)
 
-
 # def Qout(q):
 #     while True:
 #         print(q.get(True))
-
 
 # if (__name__ == '__main__'):
 #     queuemsg = Queue()
@@ -63,5 +60,36 @@
 #     p1.start()
 #     p2.start()
 #     p1.join()
-    
+
 #     p2.terminate()
+
+# import threading, multiprocessing
+
+# def loop(x):
+#     while True:
+#         x = x ^ 1
+
+# for x in range(multiprocessing.cpu_count()):
+#     t1 = threading.Thread(target=loop, args=(x, ))
+#     t1.start()
+
+# #ThreadLoacl 线程全局变量，每个线程访问互不干扰
+
+# import threading
+
+# thLoacl = threading.local()
+
+
+# def printst():
+#     stname = thLoacl.stname
+#     print('Thread:%s,StName:%s' % (threading.current_thread().name, stname))
+
+
+# def loop(stname):
+#     thLoacl.stname = stname
+#     printst()
+
+# if (__name__ == '__main__'):
+#     for i in range(10):
+#         t = threading.Thread(target=loop, args=(i, ), name='线程' + str(i))
+#         t.start()
