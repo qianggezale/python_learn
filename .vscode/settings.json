@@ -1,4 +1,4 @@
 {
-    "python.formatting.provider": "yapf",
+    "python.formatting.provider": "autopep8",
     "python.pythonPath": "D:\\Program Files\\Python\\virtualenv\\python3.7.3\\Scripts\\python.exe"
 }
