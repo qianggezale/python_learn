@@ -1,4 +1,5 @@
 from pyspark import SparkConf, SparkContext
+from pyspark.sql import SparkSession
 import random
 
 # 注意配置spark环境变量
@@ -93,11 +94,35 @@ rdd_result = (
 
 
 # TOP n
-top_data = sc.parallelize("afghajshfqwuefsajdfaadfae")
-top_n_data = (
-    top_data.map(lambda x: (x, 1))
-    .reduceByKey(lambda x, y: x+y)
-)
-print(top_n_data.collect())
-top1 = top_n_data.top(30, key=lambda x: x[1])  # x[1]是(key,value)中的value
-print(top1)
+# top_data = sc.parallelize("afghajshfqwuefsajdfaadfae")
+# top_n_data = (
+#     top_data.map(lambda x: (x, 1))
+#     .reduceByKey(lambda x, y: x+y)
+# )
+# print(top_n_data.collect())
+# top1 = top_n_data.top(30, key=lambda x: x[1])  # x[1]是(key,value)中的value
+# print(top1)
+
+# sparksql
+# Initialise spark context.
+
+spark = (SparkSession.builder
+         .master('local[*]').config("spark.app.name", "app_spark_name")
+         .enableHiveSupport()
+         .getOrCreate()
+         )
+
+data_df = spark.read.json(
+    'file:///D:/1Info/project/python/python_learn/input/data.json')
+# data_df.show()
+# data_df.select("name", data_df["id"]+1).show()
+
+data_df.registerTempTable("t_datajson")
+spark.sql("select name,id from t_datajson where id >2").show()
+spark.sql("select * from t_datajson limit 3").show()
+group_df = spark.sql(
+    "select name,count(1) as count from t_datajson group by name")
+all_df = spark.sql("select * from t_datajson")
+
+group_json = group_df.toJSON()
+print(group_json.collect())
