@@ -112,17 +112,26 @@ spark = (SparkSession.builder
          .getOrCreate()
          )
 
-data_df = spark.read.json(
-    'file:///D:/1Info/project/python/python_learn/input/data.json')
+# data_df = spark.read.json('file:///D:/1Info/project/python/python_learn/input/data.json')
 # data_df.show()
 # data_df.select("name", data_df["id"]+1).show()
 
-data_df.registerTempTable("t_datajson")
-spark.sql("select name,id from t_datajson where id >2").show()
-spark.sql("select * from t_datajson limit 3").show()
-group_df = spark.sql(
-    "select name,count(1) as count from t_datajson group by name")
-all_df = spark.sql("select * from t_datajson")
+# sql
+# data_df.registerTempTable("t_datajson")
+# spark.sql("select name,id from t_datajson where id >2").show()
+# spark.sql("select * from t_datajson limit 3").show()
+# group_df = spark.sql(
+#     "select name,count(1) as count from t_datajson group by name")
+# all_df = spark.sql("select * from t_datajson")
 
-group_json = group_df.toJSON()
-print(group_json.collect())
+# group_json = group_df.toJSON()
+# print(group_json.collect())
+
+# create table
+# retrunstr = spark.sql("create table t_ren1 (id int ,name string)")
+# print(retrunstr.collect())
+# spark.sql("INSERT INTO t_ren VALUES (1,'zhang'), (2,'tank') ")
+# spark.sql("select * from t_ren").show()
+data_ren = spark.sql("select * from t_ren")
+data_dict = dict(data_ren.collect())
+print(data_dict)
